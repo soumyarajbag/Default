@@ -4,10 +4,12 @@ import { FaSearch } from "react-icons/fa";
 import Chart from './Chart';
 import Sign from "./Sign";
 import SignState from "../contexts/SignState";
+import SignContext from "../contexts/SignContext";
 
 const Main = () => {
-  const s = useContext(SignState) ;
-
+  const s = useContext(SignContext) ;
+   const modal = s.modal ;
+   const setModal = s.setModal ;
   return ( 
     <>
       <div>
@@ -44,15 +46,9 @@ const Main = () => {
           
         </div>
 
-        <div className="flex flex-col items-center   2xl:flex-row absolute min-[360px]:top-[70vh] min-[280px]:top-[85vh] min-[390px]:top-[65vh] lg:top-[95vh] xl:top-[60vh] md:space-y-10 2xl:space-y-0 2xl:space-x-10">
-        <div className=" border-white box-content sm:h-[367px] sm:w-[735px] md:h-[450px] text-white border rounded-lg z-10  hover:scale-105 duration-100 bg-[rgba(22,21,21,0.28)]">
-        <Chart />
-        <h1 className="text-center text-normal md:text-2xl mb-4 font-bold">Past 100 Days Price Graph </h1>
-        </div>
-        <div className=" border-white box-content sm:h-[367px] sm:w-[735px] md:h-[450px] text-white border rounded-lg z-10 hover:scale-105 duration-100 bg-[rgba(22,21,21,0.28)]">
-        <Chart />
-        <h1 className="text-center text-normal md:text-2xl mb-4 font-bold">Upcoming 30 Days Predicted Price Graph </h1>
-        </div>
+        <div className="absolute top-[70vh] w-[1000px] h-[1500px]"> 
+          <Chart />
+
         </div>
        
       

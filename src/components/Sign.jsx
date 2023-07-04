@@ -6,7 +6,7 @@ const Sign = () => {
     
       return(
           <Signed.Container>
-              <Signed.SignUpContainer signinIn={signIn}>
+              <Signed.SignUpContainer signinin={signIn}>
                   <Signed.Form>
                       <Signed.Title>Create Account</Signed.Title>
                       <Signed.Input type='text' placeholder='Name' />
@@ -16,7 +16,7 @@ const Sign = () => {
                   </Signed.Form>
               </Signed.SignUpContainer>
 
-              <Signed.SignInContainer signinIn={signIn}>
+              <Signed.SignInContainer signinin={signIn}>
                    <Signed.Form>
                        <Signed.Title>Sign in</Signed.Title>
                        <Signed.Input type='email' placeholder='Email' />
@@ -26,10 +26,10 @@ const Sign = () => {
                    </Signed.Form>
               </Signed.SignInContainer>
 
-              <Signed.OverlayContainer signinIn={signIn}>
-                  <Signed.Overlay signinIn={signIn}>
+              <Signed.OverlayContainer signinin={signIn}>
+                  <Signed.Overlay signinin={signIn}>
 
-                  <Signed.LeftOverlayPanel signinIn={signIn}>
+                  <Signed.LeftOverlayPanel signinin={signIn}>
                       <Signed.Title>Welcome Back!</Signed.Title>
                       <Signed.Paragraph>
                           To keep connected with us please login with your personal info
@@ -39,7 +39,7 @@ const Sign = () => {
                       </Signed.GhostButton>
                       </Signed.LeftOverlayPanel>
 
-                      <Signed.RightOverlayPanel signinIn={signIn}>
+                      <Signed.RightOverlayPanel signinin={signIn}>
                         <Signed.Title>Hello, Friend!</Signed.Title>
                         <Signed.Paragraph>
                             Enter Your personal details and start journey with us

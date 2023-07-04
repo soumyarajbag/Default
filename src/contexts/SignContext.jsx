@@ -1,5 +1,5 @@
 import  { createContext } from 'react'
 
-const SignContext = createContext(null) ;
+const SignContext = createContext() ;
 
 export default SignContext

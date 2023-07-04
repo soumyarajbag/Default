@@ -12,7 +12,7 @@ const Team = () => {
         {
             team.map(( member)=>{
                 return(
-                    <TeamCard id={member.id} name={member.name} photo={member.photo} role={member.role} />
+                    <TeamCard key={member.id} name={member.name} photo={member.photo} role={member.role} />
                 )
             })
          }
