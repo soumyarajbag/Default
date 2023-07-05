@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import { Line } from "react-chartjs-2";
 import { days, predicted_prices } from "../data/data2";
 import {
@@ -11,6 +11,7 @@ import {
   Colors,
   Filler,
 } from "chart.js";
+import SignContext from "../contexts/SignContext";
 
 ChartJS.register(
   LineElement,
@@ -27,12 +28,19 @@ ChartJS.defaults.borderColor = "#fff";
 ChartJS.defaults.scales.category.zeroLineColor = "#fff";
 
 const Chart = () => {
+
+  const s = useContext(SignContext);
+  
+  const stockInfo = s.stockInfo;
+  // console.log("The days are", stockInfo.days);
+  // console.log("The predicted prices are", stockInfo.predicted_prices);
+
   const data = {
-    labels: days,
+    labels: stockInfo.days,
     datasets: [
       {
         label: "Stock Price v/s Days",
-        data: predicted_prices,
+        data: stockInfo.predicted_prices,
         // backgroundColor: (context) => {
         //   // const bgColor = [
         //   //   "rgba(255 , 26 , 104 , 0.2)",
@@ -97,8 +105,8 @@ const Chart = () => {
           maxTicksLimit: 100,
           
         },
-        max: Math.max(...predicted_prices),
-        min: Math.min(...predicted_prices),
+        max: Math.max(...stockInfo.predicted_prices),
+        min: Math.min(...stockInfo.predicted_prices) ,
         grid: {
           display: false,
           color: "rgba(0,255,0,0.9)",

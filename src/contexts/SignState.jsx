@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import SignContext from './SignContext'
+import data2 from '../data/data2'
 
 const SignState = (props) => {
-    const [modal , setModal] = useState(false)
+  const [modal, setModal] = useState(false)
 
-    // const handleModal = () =>{
-    //     setModal(!modal) ;
-    // }
+  const [stockInfo, setStockInfo] = useState(data2);
+
+  // const handleModal = () =>{
+  //     setModal(!modal) ;
+  // }
   return (
-    <SignContext.Provider value={{modal , setModal}}>
-        {props.children}
+    <SignContext.Provider value={{ modal, setModal, stockInfo, setStockInfo }}>
+      {props.children}
     </SignContext.Provider>
   )
 }
