@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { FaBars, FaTimes } from "react-icons/fa";
 import SignContext from "../contexts/SignContext";
-import SignState from "../contexts/SignState";
+
 const Navbar = () => {
   const s = useContext(SignContext);
   const modal = s.modal;
@@ -26,7 +26,7 @@ const Navbar = () => {
             LOGO
           </h1>
         </Link>
-        <ul className="hidden md:flex flex-row justify-between space-x-10 font-normal text-2xl items-center">
+        <ul className="hidden  xl:flex flex-row justify-between space-x-10 font-normal text-2xl items-center">
           <li className="p-4">
             <Link to="/">
               <h1 className="hover:border-b border-spacing-4 hover:border-b-white">
@@ -54,7 +54,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <div onClick={handleNav} className="block md:hidden">
+        <div onClick={handleNav} className="block xl:hidden">
           {!nav ? <FaBars size={25} /> : <FaTimes size={25} />}
         </div>
         <ul

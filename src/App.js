@@ -4,8 +4,7 @@ import Home from  './routes/Home'
 import Navbar from './components/Navbar';
 import Main from './components/Main';
 import Team from './components/Team';
-import Footer from './components/Footer';
-import SignState from './contexts/SignState';
+
 function App() {
   return (
    <div>

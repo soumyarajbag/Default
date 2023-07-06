@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import BgVideo from '../assets/bgvid.mp4'
-import Sign from './Sign'
 import SignContext from '../contexts/SignContext'
 const Video = () => {
   const s = useContext(SignContext) ;
@@ -15,7 +14,7 @@ const Video = () => {
         <Link to='/main'><button className='text-white text-2xl p-4 border my-4 font-bold rounded-md hover:bg-white hover:text-black hover:bg-opacity-50'>Get Started</button></Link>
         
      </div>
-     { modal===true?<Sign /> : null  }
+     {/* { modal===true?<Sign /> : null  } */}
      
     </div>
   )
