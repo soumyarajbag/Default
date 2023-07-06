@@ -112,7 +112,7 @@ const Chart = () => {
     },
   };
   return (
-    <div className="2xl:h-[700px] 2xl:w-[1100px] min-[360px]:w-[320px] min-[360px]:h-[200px]  min-[390px]:w-[340px] min-[400px]:w-[370px] min-[500px]:w-[500px] min-[500px]:h-[280px] md:w-[690px] md:h-[800px] min-[800px]:w-[750px] min-[900px]:w-[840px] lg:w-[950px] min-[1080px]:w-[840px]">
+    <div className="2xl:h-[700px] 2xl:w-[1100px] min-[360px]:w-[320px] min-[360px]:h-[200px]  min-[390px]:w-[340px] min-[400px]:w-[370px] min-[500px]:w-[500px] min-[500px]:h-[280px] md:w-[690px] md:h-[800px] min-[800px]:w-[750px] min-[900px]:w-[840px] lg:w-[950px] min-[1080px]:w-[850px] ">
       <Line data={data} options={options}></Line>
     </div>
   );
