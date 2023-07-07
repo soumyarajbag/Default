@@ -2,7 +2,7 @@ import  { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import BgVideo from '../assets/bgvid.mp4'
 import SignContext from '../contexts/SignContext'
-
+import person from '../assets/person.png'
 
 import Modal from './Modal'
 

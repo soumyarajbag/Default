@@ -5,12 +5,11 @@ import devfolio from '../assets/Devfolio.png';
 
 const TeamCard = (props) => {
   return (
-    // <>bg-[rgba(22,21,21,0.28)]
     <>
     <div className='my-4'>
-    <div className='flex flex-col  items-center space-y-2 hover:scale-110 bg-gray-900  w-[250px] h-[450px] md:w-[300px] md:h-[500px] rounded-lg shadow-slate-300  shadow-lg'>
+    <div className='flex flex-col  items-center space-y-4 hover:scale-110 bg-gray-900  w-[270px] h-[400px] md:w-[300px] md:h-[450px] rounded-lg shadow-slate-300  shadow-md'>
         <div>
-          <img src={props.photo} alt=""  className='h-[200px] w-[200px] md:h-[250px] md:w-[250px] rounded-full mt-16' />
+          <img src={props.photo} alt=""  className='h-[150px] w-[150px] md:h-[170px]  md:w-[170px] rounded-full mt-16' />
         </div>
         <h1 className='text-2xl font-bold text-white'>{props.name}</h1>
         <h2 className='text-xl font-semibold text-gray-300'>{props.role}</h2>
@@ -21,7 +20,6 @@ const TeamCard = (props) => {
         </div>
      </div>
     </div>
-    
     </>
   )
 }

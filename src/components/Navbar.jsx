@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import person from "../assets/person.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 import SignContext from "../contexts/SignContext";
-import logo from "../assets/logo.png";
+import logo from "../assets/StockXplore.png";
 const Navbar = () => {
   const s = useContext(SignContext);
   const handleModal = s.handleModal ;
@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className="absolute  flex flex-row justify-between  md:justify-between  items-center h-24 w-full  lg:px-[4.5rem] text-white p-[1rem] z-10">
         <NavLink to="/">
           <h1 className="text-white font-bold text-4xl md:text-5xl min-[1080px]:text-7xl  xl:text-5xl w-full">
-            <img src={logo} className="bg-black h-[120px] w-[120px]" alt="" />
+            <img src={logo} className="h-[100px] brightness-200 opacity-100 mt-2 w-[120px]" alt="" />
           </h1>
         </NavLink>
         <ul className="hidden  xl:flex flex-row justify-between space-x-10 font-normal text-2xl items-center">

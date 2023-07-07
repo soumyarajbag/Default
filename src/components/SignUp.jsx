@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import SignContext from '../contexts/SignContext';
-import { MdEmail } from "react-icons/md";
-import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
+import { BsFillKeyFill, BsFillPersonFill, BsFillTelephoneFill } from "react-icons/bs";
 
 const SignUp = ({setSign}) => {
     const s = useContext(SignContext);
@@ -10,6 +9,11 @@ const SignUp = ({setSign}) => {
   const signIn = ()=>{
     setSign(true);
   }
+
+  const [phone , setPhone] = useState("");
+  const [pass , setPass] = useState("");
+  const [fname , setFName] = useState("");
+  const [lname , setLName] = useState("");
   
   return (
     <>
@@ -19,7 +23,7 @@ const SignUp = ({setSign}) => {
       className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex justify-center items-center"
     >
       <div
-        className="bg-black bg-opacity-80 2xl:bg-inherit flex flex-col text-white border-4 border-blue-400 rounded-xl p-2  2xl:w-[400px] min-[360px]:w-[310px] min-[400px]:w-[360px] min-[500px]:w-[400px] min-[800px]:w-[500px] min-[900px]:w-[600px] lg:w-[320px] min-[1080px]:w-[700px] xl:w-[390px] 2xl:h-[740px] min-[360px]:h-[540px] min-[390px]:h-[580px] min-[400px]:h-[600px] min-[500px]:h-[580px] min-[600px]:h-[640px] min-[700px]:h-[720px] min-[800px]:h-[770px] min-[900px]:h-[820px] lg:h-[480px] min-[1080px]:h-[900px] xl:h-[640px]" >
+        className="bg-black bg-opacity-80 2xl:bg-inherit flex flex-col text-white border-4 border-blue-400 rounded-xl p-2  2xl:w-[400px] min-[360px]:w-[310px] min-[400px]:w-[360px] min-[500px]:w-[400px] min-[800px]:w-[500px] min-[900px]:w-[600px] lg:w-[320px] min-[1080px]:w-[700px] xl:w-[390px] 2xl:h-[740px] min-[360px]:h-[540px] min-[390px]:h-[580px] min-[400px]:h-[600px] min-[500px]:h-[580px] min-[600px]:h-[640px] min-[700px]:h-[720px] min-[800px]:h-[770px] min-[900px]:h-[820px] lg:h-[480px] min-[1080px]:h-[1000px] xl:h-[640px]" >
         <div className="relative left-[95%] top-[1%]">
           <h1 onClick={handleClose} id="close" className="font-bold text-xl cursor-pointer">
             X
@@ -36,6 +40,8 @@ const SignUp = ({setSign}) => {
               <div className="flex items-center">
                 <BsFillPersonFill size={25} className="relative 2xl:left-[3.5vh] min-[360px]:left-[4.5vh]  min-[500px]:left-[4vh] min-[600px]:left-[3vh] lg:left-[5vh]  min-[1080px]:left-[2vh] xl:left-[4vh]" />
                 <input
+                value={fname}
+                onChange={(e)=>{setFName(e.target.value)}}
                   type="name"
                   id="name"
                   name="name"
@@ -47,6 +53,8 @@ const SignUp = ({setSign}) => {
               <div className="flex items-center">
                 <BsFillPersonFill size={25} className="relative 2xl:left-[3.5vh] min-[360px]:left-[4.5vh]  min-[500px]:left-[4vh] min-[600px]:left-[3vh] lg:left-[5vh]  min-[1080px]:left-[2vh] xl:left-[4vh]" />
                 <input
+                value={lname}
+                onChange={(e)=>{setLName(e.target.value)}}
                   type="name"
                   id="name"
                   name="name"
@@ -55,20 +63,25 @@ const SignUp = ({setSign}) => {
                 />
               </div>
             
-            <div className="flex items-center">
-              <MdEmail size={25} className="relative 2xl:left-[3.5vh] min-[360px]:left-[4.5vh]  min-[500px]:left-[4vh] min-[600px]:left-[3vh] lg:left-[5vh]  min-[1080px]:left-[2vh] xl:left-[4vh]" />
+              <div className="flex items-center">
+              <BsFillTelephoneFill size={25} className="relative 2xl:left-[3.5vh] min-[360px]:left-[4.5vh]  min-[500px]:left-[4vh] min-[600px]:left-[3vh] lg:left-[5vh]  min-[1080px]:left-[2vh] xl:left-[4vh]" />
               <input
-                type="email"
-                id="email"
-                name="email"
+               value={phone}
+               onChange={(e)=>{setPhone(e.target.value)}}
+                type="number"
+                id="number"
+                
+                name="number"
                 className="text-white bg-transparent  border-2 rounded-lg border-blue-400   placeholder:text-white pl-10 pr-2 font-semibold 2xl:h-14 2xl:w-[35vh] 2xl:text-xl min-[360px]:h-10 min-[360px]:w-[35vh] min-[390px]:w-[30vh] min-[400px]:w-[32vh] min-[500px]:w-[43vh] min-[600px]:w-[27vh] min-[600px]:pl-12 min-[700px]:h-16 min-[700px]:w-[30vh] min-[800px]:w-[36vh] min-[800px]:text-2xl min-[900px]:pl-14 min-[900px]:w-[38vh] lg:h-8 lg:text-lg  min-[1080px]:text-2xl min-[1080px]:w-[26vh]  min-[1080px]:h-16 xl:w-[40vh]"
-                placeholder="E-mail"
+                placeholder="Phone Number"
               />
             </div>
 
             <div className="flex items-center">
               <BsFillKeyFill size={25} className="relative 2xl:left-[3.5vh] min-[360px]:left-[4.5vh] min-[500px]:left-[4vh] min-[600px]:left-[3vh] lg:left-[5vh]  min-[1080px]:left-[2vh] xl:left-[4vh]" />
               <input
+              value={pass}
+              onChange={(e)=>{setPass(e.target.value)}}
                 type="password"
                 id="password"
                 name="password"
