@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import TeamCard from './TeamCard'
 import {team} from '../data/data' ; 
+import SignContext from '../contexts/SignContext';
+import Signed from './Signed';
 const Team = () => {
+  const s = useContext(SignContext) ;
+   const modal = s.modal ;
   return (
     <>
     <div className='flex flex-col items-center'>
@@ -20,7 +24,7 @@ const Team = () => {
     
     </div>
     </div>
-    
+    { modal===true?<Signed /> : null  }
     
     </>
   )

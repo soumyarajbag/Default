@@ -1,31 +1,25 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { FaBars, FaTimes } from "react-icons/fa";
 import SignContext from "../contexts/SignContext";
-
+import logo from "../assets/logo.png";
 const Navbar = () => {
   const s = useContext(SignContext);
-  const modal = s.modal;
-  const setModal = s.setModal;
-  const handleModal = () => {
-    setModal(!modal) ;
-    console.log(modal);
-  }
-
+  const handleModal = s.handleModal ;
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
   };
-  // onClick={()=>setmodal(!modal)}
+  
   return (
     <>
       <div className="absolute  flex flex-row justify-between  md:justify-between  items-center h-24 w-full  lg:px-[4.5rem] text-white p-[1rem] z-10">
-        <Link to="/">
+        <NavLink to="/">
           <h1 className="text-white font-bold text-4xl md:text-5xl min-[1080px]:text-7xl  xl:text-5xl w-full">
-            LOGO
+            <img src={logo} className="bg-black h-[120px] w-[120px]" alt="" />
           </h1>
-        </Link>
+        </NavLink>
         <ul className="hidden  xl:flex flex-row justify-between space-x-10 font-normal text-2xl items-center">
           <li className="p-4">
             <Link to="/">
@@ -49,9 +43,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="p-4">
-            <Link to="/">
-              <button onClick={handleModal} className="border p-4">Sign Up/Sign In</button>
-            </Link>
+            
+              <button onClick={handleModal} className="border p-4 font-bold rounded-lg hover:bg-white hover:text-black hover:bg-opacity-70">Sign Up/Sign In</button>
+            
           </li>
         </ul>
         <div onClick={handleNav} className="block xl:hidden">
@@ -77,7 +71,7 @@ const Navbar = () => {
 
           <li className="p-4 min-[1080px]:p-10">
             <button
-              onClick={() => setModal(!modal)}
+              onClick={handleModal}
               className="text-white md:text-2xl min-[1080px]:p-10 min-[1080px]:text-5xl p-2 md:p-4 border my-4 font-semibold rounded-md hover:bg-white hover:text-black hover:bg-opacity-50"
             >
               Sign Up/Sign In

@@ -4,32 +4,11 @@ import { FaSearch } from "react-icons/fa";
 import Chart from "./Chart";
 import SignContext from "../contexts/SignContext";
 import Table from "./Table";
+import Signed from "./Signed";
 
 const Main = () => {
   const s = useContext(SignContext);
   const modal = s.modal;
-  const setModal = s.setModal;
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const options = {
-  //       method: 'GET',
-  //       url: 'https://yahoo-finance127.p.rapidapi.com/price/eth-usd',
-  //       headers: {
-  //         'X-RapidAPI-Key': '86cbb185f4mshc406d385be4f8dfp1c104fjsne05fe8b44225',
-  //         'X-RapidAPI-Host': 'yahoo-finance127.p.rapidapi.com'
-  //       }
-  //     };
-  //     try {
-  //       const response = await axios.request(options);
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
 
   return (
     <>
@@ -68,22 +47,6 @@ const Main = () => {
           </h1>
         </div>
        </div>
-          
-          
-        
-        
-        {/* <div className="bg-[rgba(22,21,21,0.28)] border border-white rounded-lg  text-white flex flex-col min-[390px]:w-[340px] ml-1 min-[400px]:ml-4 lg:ml-0  box-content p-5 md:w-[500px] lg:w-[700px] xl:w-[900px] 2xl:w-[500px]">
-        
-            <h1 className="text-white text-2xl">Company Name</h1>
-            <p className="mt-4">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
-              natus dolore eos hic repudiandae minus ad soluta ut itaque, ex
-              saepe id sit ratione, animi consequatur delectus et unde neque!
-              Unde, consequuntur. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident aspernatur esse dolorum libero sequi quas nobis velit. Beatae soluta mollitia, voluptatibus perferendis minima a sunt maxime optio esse obcaecati, temporibus consectetur dolore?
-            </p>
-            <h1 className="text-xl font-semibold mt-4">Present Stock Price :  </h1>
-          
-        </div> */}
 
         <div className="relative top-[-5vh]">
           
@@ -91,6 +54,7 @@ const Main = () => {
         </div>
         </div> 
       </div>
+      { modal===true?<Signed /> : null  }
     </>
   );
 };
