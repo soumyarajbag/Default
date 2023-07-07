@@ -4,9 +4,11 @@ import BgVideo from '../assets/bgvid.mp4'
 import SignContext from '../contexts/SignContext'
 
 import Signed from './Signed'
+import SignUp from '../components/SignUp'
 const Video = () => {
   const s = useContext(SignContext) ;
    const modal = s.modal ;
+   const sign = s.sign ;
    
   return (
     <div className='absolute top-0 w-[100%] h-[100%]'>
@@ -16,7 +18,7 @@ const Video = () => {
         <Link to='/main'><button className='text-white text-2xl p-4 border my-4 font-bold rounded-md hover:bg-white hover:text-black hover:bg-opacity-50'>Get Started</button></Link>
         
      </div>
-     { modal===true?<Signed /> : null  }
+     {modal ?<Signed /> : null  }
      
     </div>
   )

@@ -9,11 +9,16 @@ const SignState = (props) => {
     const [stockInfo, setStockInfo] = useState(data2);
     const handleModal = () => {
       setModal(true) ;
+      
     }
+    
+    
 
     const handleClose = (e)=>{
       if(e.target.id==='container' || e.target.id === 'close'){
         setModal(false);
+       
+        
       }
       
     }
