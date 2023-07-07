@@ -1,15 +1,16 @@
 import React, { useContext } from 'react'
-import SignContext from "../contexts/SignContext";
+import SignContext from '../contexts/SignContext';
 import { MdEmail } from "react-icons/md";
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 
-const SignUp = () => {
+const SignUp = ({setSign}) => {
+    const s = useContext(SignContext);
     
-
-  const s = useContext(SignContext);
-  const sign = s.sign ;
-  const handleClose = s.handleClose ;
-  ;
+  const handleClose = s.handleClose;
+  const signIn = ()=>{
+    setSign(true);
+  }
+  
   return (
     <>
     <div
@@ -67,16 +68,16 @@ const SignUp = () => {
 
             <div className="mt-5">
               <button className="border border-blue-500 rounded-lg  text-center p-2 font-semibold bg-blue-600 hover:bg-[#0d07b0]  w-[15vh] 2xl:text-xl min-[800px]:text-2xl lg:text-lg min-[1080px]:text-2xl">
-                {sign ? "Login" : "Register"}
+                Register
               </button>
             </div>
 
             <div className="flex flex-col mt-5">
               <h1 className="font-semibold 2xl:text-base min-[800px]:text-2xl lg:text-lg min-[1080px]:text-2xl">
-                {sign ? "Haven't Joined Yet ?" : "Have An Account Already ?"}
+                Have An Account Already ?
               </h1>
               <h1
-               
+                 onClick={signIn}
                 className="text-yellow-400 font-bold hover:text-orange-500 hover:cursor-pointer 2xl:text-base min-[800px]:text-2xl lg:text-lg min-[1080px]:text-2xl"
               >
                 Login Now !
@@ -86,6 +87,7 @@ const SignUp = () => {
         </form>
       </div>
     </div>
+    
     </>
   )
 }

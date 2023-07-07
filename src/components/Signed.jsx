@@ -1,17 +1,19 @@
 import React, { useContext } from "react";
 import SignContext from "../contexts/SignContext";
 import { MdEmail } from "react-icons/md";
-import { BsFillKeyFill } from "react-icons/bs";
+import { BsFillKeyFill} from "react-icons/bs";
 
-const Signed = () => {
+const Signed = ({setSign}) => {
   const s = useContext(SignContext);
   
   const handleClose = s.handleClose;
-  
+  const signUp = ()=>{
+    setSign(false);
+  }
   
   return (
     <>
-    <div
+     <div
       onClick={handleClose}
       id="container"
       className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex justify-center items-center"
@@ -33,14 +35,12 @@ const Signed = () => {
         <form action="" className="text-center">
           <div className="flex flex-col gap-4 relative top-[18vh] lg:top-[3vh] min-[1080px]:top-[14vh] xl:top-[12vh] 2xl:top-[18vh]">
            
-              
-          
-
             <div className="flex items-center">
               <MdEmail size={25} className="relative 2xl:left-[3.5vh] min-[360px]:left-[4.5vh]  min-[500px]:left-[4vh] min-[600px]:left-[3vh] lg:left-[5vh]  min-[1080px]:left-[2vh] xl:left-[4vh]" />
               <input
                 type="email"
                 id="email"
+                
                 name="email"
                 className="text-white bg-transparent  border-2 rounded-lg border-blue-400   placeholder:text-white pl-10 pr-2 font-semibold 2xl:h-14 2xl:w-[35vh] 2xl:text-xl min-[360px]:h-10 min-[360px]:w-[35vh] min-[390px]:w-[30vh] min-[400px]:w-[32vh] min-[500px]:w-[43vh] min-[600px]:w-[27vh] min-[600px]:pl-12 min-[700px]:h-16 min-[700px]:w-[30vh] min-[800px]:w-[36vh] min-[800px]:text-2xl min-[900px]:pl-14 min-[900px]:w-[38vh] lg:h-8 lg:text-lg  min-[1080px]:text-2xl min-[1080px]:w-[26vh]  min-[1080px]:h-16 xl:w-[40vh]"
                 placeholder="E-mail"
@@ -69,7 +69,7 @@ const Signed = () => {
                 Haven't Joined Yet ?
               </h1>
               <h1
-                
+                onClick={signUp}
                 className="text-yellow-400 font-bold hover:text-orange-500 hover:cursor-pointer 2xl:text-base min-[800px]:text-2xl lg:text-lg min-[1080px]:text-2xl"
               >
                 Create Account 
@@ -79,8 +79,6 @@ const Signed = () => {
         </form>
       </div>
     </div>
-
-     
     
     
     </>
