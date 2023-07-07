@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import { Line } from "react-chartjs-2";
-import { days, predicted_prices } from "../data/data2";
+import data2 from "../data/data2";
 import {
   Chart as ChartJS,
   LineElement,
@@ -10,6 +10,7 @@ import {
   Legend,
   Colors,
   Filler,
+  Tooltip,
 } from "chart.js";
 import SignContext from "../contexts/SignContext";
 
@@ -20,6 +21,7 @@ ChartJS.register(
   PointElement,
   Legend,
   Colors,
+  Tooltip,
   Filler
 );
 
@@ -68,16 +70,13 @@ const Chart = () => {
         //   gradientBg.addColorStop(1, bgColor[2]);
         //   return gradientBg;
         // },
-        borderColor: [
-          "#fff",
-          
-        ],
-        pointBorderColor: "white",
+        backgroundColor: "#130791",
+        borderColor: ["#130791"],
+        pointBorderColor: "green",
         tension: 0,
-        fill: true,
+        fill: false,
         pointHoverRadius: 7.5,
-        
-        pointBackgroundColor: "yellow",
+        pointBackgroundColor: "green",
       },
     ],
   };
@@ -103,7 +102,6 @@ const Chart = () => {
       y: {
         ticks: {
           maxTicksLimit: 100,
-          
         },
         max: Math.max(...stockInfo.predicted_prices),
         min: Math.min(...stockInfo.predicted_prices) ,
@@ -117,7 +115,7 @@ const Chart = () => {
     },
   };
   return (
-    <div className="min-[280px]:h-[150px] min-[280px]:w-[250px] min-[360px]:h-[250px]  min-[360px]:w-[350px] min-[390px]:w-[370px] md:h-[1000px] md:w-[1000px]">
+    <div className="2xl:h-[700px] 2xl:w-[1100px] min-[360px]:w-[320px] min-[360px]:h-[200px]  min-[390px]:w-[340px] min-[400px]:w-[370px] min-[500px]:w-[500px] min-[500px]:h-[280px] md:w-[690px] md:h-[800px] min-[800px]:w-[750px] min-[900px]:w-[840px] lg:w-[950px] min-[1080px]:w-[850px] ">
       <Line data={data} options={options}></Line>
     </div>
   );

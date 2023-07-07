@@ -1,159 +1,102 @@
-import styled from 'styled-components';
+import React, { useContext, useState } from "react";
+import SignContext from "../contexts/SignContext";
+import { MdEmail } from "react-icons/md";
+import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 
-export const Container = styled.div`
-background-color: #fff;
-border-radius: 10px;
-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-position: relative;
-overflow: hidden;
-width: 678px;
-max-width: 100%;
-min-height: 400px;
-`;
+const Signed = () => {
+    
+  
+  const [sign, setSign] = useState(true);
 
-export const SignUpContainer = styled.div`
- position: absolute;
- top: 0;
- height: 100%;
- transition: all 0.6s ease-in-out;
- left: 0;
- width: 50%;
- opacity: 0;
- z-index: 1;
- ${props => props.signinin !== true ? `
-   transform: translateX(100%);
-   opacity: 1;
-   z-index: 5;
- ` 
- : null}
-`;
+  const handleIn = () => {
+    setSign(!sign);
+  };
 
+  const s = useContext(SignContext);
+  
+  const handleClose = s.handleClose;
 
-export const SignInContainer = styled.div`
-position: absolute;
-top: 0;
-height: 100%;
-transition: all 0.6s ease-in-out;
-left: 0;
-width: 50%;
-z-index: 2;
-${props => (props.signinin !== true ? `transform: translateX(100%);` : null)}
-`;
+  
+  return (
+    <div
+      onClick={handleClose}
+      id="container"
+      className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex justify-center items-center"
+    >
+      <div
+        className={`bg-black bg-opacity-80 2xl:bg-inherit flex flex-col text-white border-4 border-blue-400 rounded-xl p-2  2xl:w-[400px] min-[360px]:w-[330px] min-[400px]:w-[360px] min-[500px]:w-[400px] min-[800px]:w-[500px] min-[900px]:w-[600px] lg:w-[400px] min-[1080px]:w-[700px] xl:w-[500px]
+        ${sign ? "2xl:h-[600px] min-[360px]:h-[540px]  min-[500px]:h-[500px] min-[600px]:h-[610px] min-[700px]:h-[650px] min-[800px]:h-[680px]  min-[900px]:h-[730px] lg:h-[450px] min-[1080px]:h-[800px] xl:h-[550px]" : 
+        "2xl:h-[700px] min-[360px]:h-[560px] min-[390px]:h-[580px] min-[400px]:h-[600px] min-[500px]:h-[580px] min-[600px]:h-[640px] min-[700px]:h-[720px] min-[800px]:h-[770px] min-[900px]:h-[820px] lg:h-[450px] min-[1080px]:h-[900px] xl:h-[620px]"}`}
+      >
+        <div className="relative left-[95%] top-[1%]">
+          <h1 id="close" className="font-bold text-xl cursor-pointer">
+            X
+          </h1>
+        </div>
+        <div className="mb-4 relative top-[12vh] lg:top-[1vh] min-[1080px]:top-[8vh] xl:top-[1vh] 2xl:top-[12vh]">
+          <h1 className="2xl:text-3xl font-bold  text-center min-[360px]:text-xl min-[800px]:text-3xl min-[900px]:text-4xl lg:text-2xl min-[1080px]:text-4xl ">
+            {sign ? "Welcome Back User" : "Welcome"}
+          </h1>
+        </div>
+        <form action="" className="text-center">
+          <div className="flex flex-col gap-4 relative top-[18vh] lg:top-[3vh] min-[1080px]:top-[14vh] xl:top-[12vh] 2xl:top-[18vh]">
+            {sign ? null : (
+              <div className="flex items-center">
+                <BsFillPersonFill size={25} className="relative 2xl:left-[3.5vh] min-[360px]:left-[4.5vh]  min-[500px]:left-[4vh] min-[600px]:left-[3vh] lg:left-[5vh]  min-[1080px]:left-[2vh] xl:left-[4vh]" />
+                <input
+                  type="name"
+                  id="name"
+                  name="name"
+                  className="text-white bg-transparent  border-2 rounded-lg border-blue-400  placeholder:text-white pl-10 pr-2 font-semibold 2xl:h-14 2xl:w-[35vh] 2xl:text-xl min-[360px]:h-10 min-[360px]:w-[35vh] min-[390px]:w-[30vh] min-[400px]:w-[32vh]  min-[500px]:w-[43vh] min-[600px]:w-[27vh] min-[600px]:pl-12 min-[700px]:h-16 min-[700px]:w-[30vh] min-[800px]:w-[36vh] min-[800px]:text-2xl min-[900px]:pl-14 min-[900px]:w-[38vh]  lg:h-8 lg:text-lg  min-[1080px]:text-2xl min-[1080px]:w-[26vh]  min-[1080px]:h-16 xl:w-[40vh]"
+                  placeholder="Full Name"
+                />
+              </div>
+            )}
 
-export const Form = styled.form`
-background-color: #ffffff;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-padding: 0 50px;
-height: 100%;
-text-align: center;
-`;
+            <div className="flex items-center">
+              <MdEmail size={25} className="relative 2xl:left-[3.5vh] min-[360px]:left-[4.5vh]  min-[500px]:left-[4vh] min-[600px]:left-[3vh] lg:left-[5vh]  min-[1080px]:left-[2vh] xl:left-[4vh]" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="text-white bg-transparent  border-2 rounded-lg border-blue-400   placeholder:text-white pl-10 pr-2 font-semibold 2xl:h-14 2xl:w-[35vh] 2xl:text-xl min-[360px]:h-10 min-[360px]:w-[35vh] min-[390px]:w-[30vh] min-[400px]:w-[32vh] min-[500px]:w-[43vh] min-[600px]:w-[27vh] min-[600px]:pl-12 min-[700px]:h-16 min-[700px]:w-[30vh] min-[800px]:w-[36vh] min-[800px]:text-2xl min-[900px]:pl-14 min-[900px]:w-[38vh] lg:h-8 lg:text-lg  min-[1080px]:text-2xl min-[1080px]:w-[26vh]  min-[1080px]:h-16 xl:w-[40vh]"
+                placeholder="E-mail"
+              />
+            </div>
 
-export const Title = styled.h1`
-font-weight: bold;
-margin: 0;
-`;
+            <div className="flex items-center">
+              <BsFillKeyFill size={25} className="relative 2xl:left-[3.5vh] min-[360px]:left-[4.5vh] min-[500px]:left-[4vh] min-[600px]:left-[3vh] lg:left-[5vh]  min-[1080px]:left-[2vh] xl:left-[4vh]" />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                className="text-white bg-transparent  border-2 rounded-lg border-blue-400  placeholder:text-white pl-10 pr-2 font-semibold 2xl:h-14 2xl:w-[35vh] 2xl:text-xl min-[360px]:h-10 min-[360px]:w-[35vh] min-[390px]:w-[30vh] min-[400px]:w-[32vh] min-[500px]:w-[43vh] min-[600px]:w-[27vh] min-[600px]:pl-12 min-[700px]:h-16 min-[700px]:w-[30vh] min-[800px]:w-[36vh] min-[800px]:text-2xl min-[900px]:pl-14 min-[900px]:w-[38vh]  lg:h-8 lg:text-lg  min-[1080px]:text-2xl min-[1080px]:w-[26vh]  min-[1080px]:h-16 xl:w-[40vh]"
+                placeholder="Password"
+              />
+            </div>
 
-export const Input = styled.input`
-background-color: #eee;
-border: none;
-padding: 12px 15px;
-margin: 8px 0;
-width: 100%;
-`;
+            <div className="mt-5">
+              <button className="border border-blue-500 rounded-lg  text-center p-2 font-semibold bg-blue-600 hover:bg-[#0d07b0]  w-[15vh] 2xl:text-xl min-[800px]:text-2xl lg:text-lg min-[1080px]:text-2xl">
+                {sign ? "Login" : "Register"}
+              </button>
+            </div>
 
+            <div className="flex flex-col mt-5">
+              <h1 className="font-semibold 2xl:text-base min-[800px]:text-2xl lg:text-lg min-[1080px]:text-2xl">
+                {sign ? "Haven't Joined Yet ?" : "Have An Account Already ?"}
+              </h1>
+              <h1
+                onClick={handleIn}
+                className="text-yellow-400 font-bold hover:text-orange-500 hover:cursor-pointer 2xl:text-base min-[800px]:text-2xl lg:text-lg min-[1080px]:text-2xl"
+              >
+                {sign ? "Create Account" : "Login Now !"}
+              </h1>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
 
-export const Button = styled.button`
-   border-radius: 20px;
-   border: 1px solid #ff4b2b;
-   background-color: #ff4b2b;
-   color: #ffffff;
-   font-size: 12px;
-   font-weight: bold;
-   padding: 12px 45px;
-   letter-spacing: 1px;
-   text-transform: uppercase;
-   transition: transform 80ms ease-in;
-   &:active{
-       transform: scale(0.95);
-   }
-   &:focus {
-       outline: none;
-   }
-`;
-export const GhostButton = styled(Button)`
-background-color: transparent;
-border-color: #ffffff;
-`;
-
-export const Anchor = styled.a`
-color: #333;
-font-size: 14px;
-text-decoration: none;
-margin: 15px 0;
-`;
-export const OverlayContainer = styled.div`
-position: absolute;
-top: 0;
-left: 50%;
-width: 50%;
-height: 100%;
-overflow: hidden;
-transition: transform 0.6s ease-in-out;
-z-index: 100;
-${props =>
- props.signinin !== true ? `transform: translateX(-100%);` : null}
-`;
-
-export const Overlay = styled.div`
-background: #ff416c;
-background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-background: linear-gradient(to right, #ff4b2b, #ff416c);
-background-repeat: no-repeat;
-background-size: cover;
-background-position: 0 0;
-color: #ffffff;
-position: relative;
-left: -100%;
-height: 100%;
-width: 200%;
-transform: translateX(0);
-transition: transform 0.6s ease-in-out;
-${props => (props.signinin !== true ? `transform: translateX(50%);` : null)}
-`;
-
-export const OverlayPanel = styled.div`
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    text-align: center;
-    top: 0;
-    height: 100%;
-    width: 50%;
-    transform: translateX(0);
-    transition: transform 0.6s ease-in-out;
-`;
-
-export const LeftOverlayPanel = styled(OverlayPanel)`
-  transform: translateX(-20%);
-  ${props => props.signinin !== true ? `transform: translateX(0);` : null}
-`;
-
-export const RightOverlayPanel = styled(OverlayPanel)`
-    right: 0;
-    transform: translateX(0);
-    ${props => props.signinin !== true ? `transform: translateX(20%);` : null}
-`;
-
-export const Paragraph = styled.p`
-font-size: 14px;
-  font-weight: 100;
-  line-height: 20px;
-  letter-spacing: 0.5px;
-  margin: 20px 0 30px
-`;
+export default Signed;

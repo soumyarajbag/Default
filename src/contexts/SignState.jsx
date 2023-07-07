@@ -1,18 +1,25 @@
 import React, { useState } from 'react'
 import SignContext from './SignContext'
-import data2 from '../data/data2'
+import data2 from '../data/data2';
+
 
 const SignState = (props) => {
-  const [modal, setModal] = useState(false)
+    const [modal , setModal] = useState(false)
+    
+    const [stockInfo, setStockInfo] = useState(data2);
+    const handleModal = () => {
+      setModal(true) ;
+    }
 
-  const [stockInfo, setStockInfo] = useState(data2);
-
-  // const handleModal = () =>{
-  //     setModal(!modal) ;
-  // }
+    const handleClose = (e)=>{
+      if(e.target.id==='container' || e.target.id === 'close'){
+        setModal(false);
+      }
+      
+    }
   return (
-    <SignContext.Provider value={{ modal, setModal, stockInfo, setStockInfo }}>
-      {props.children}
+    <SignContext.Provider value={{modal , handleModal , stockInfo , setStockInfo , handleClose}}>
+        {props.children}
     </SignContext.Provider>
   )
 }
