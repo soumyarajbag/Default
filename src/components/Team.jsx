@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import TeamCard from './TeamCard'
 import {team} from '../data/data' ; 
 import SignContext from '../contexts/SignContext';
-import Signed from './Signed';
+import Modal from './Modal';
 const Team = () => {
   const s = useContext(SignContext) ;
    const modal = s.modal ;
@@ -24,7 +24,7 @@ const Team = () => {
     
     </div>
     </div>
-    { modal===true?<Signed /> : null  }
+    {modal ? <Modal /> : null}
     
     </>
   )
