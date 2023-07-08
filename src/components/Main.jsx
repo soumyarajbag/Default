@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import Chart from "./Chart";
 import SignContext from "../contexts/SignContext";
 import Table from "./Table";
-import Signed from "./Signed";
+import Modal from "./Modal";
 
 import axios from 'axios';
 
@@ -74,7 +74,7 @@ const Main = () => {
         </div>
         </div> 
       </div>
-      { modal===true?<Signed /> : null  }
+      {modal ? <Modal /> : null}
     </>
   );
 };

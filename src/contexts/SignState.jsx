@@ -10,10 +10,14 @@ const SignState = (props) => {
     const handleModal = () => {
       setModal(true) ;
     }
+    
+    
 
     const handleClose = (e)=>{
       if(e.target.id==='container' || e.target.id === 'close'){
         setModal(false);
+      //  setSign(true);
+        
       }
       
     }
