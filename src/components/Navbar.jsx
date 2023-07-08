@@ -4,6 +4,7 @@ import person from "../assets/person.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 import SignContext from "../contexts/SignContext";
 import logo from "../assets/StockXplore.png";
+import { TypeAnimation } from "react-type-animation";
 const Navbar = () => {
   const s = useContext(SignContext);
   const handleModal = s.handleModal ;
@@ -44,7 +45,21 @@ const Navbar = () => {
           </li>
           <li className="p-4">
             
-              <button onClick={handleModal} className="border p-4 font-bold rounded-lg hover:bg-white hover:text-black hover:bg-opacity-70">Sign Up/Sign In</button>
+              <button onClick={handleModal} className="border p-4 font-bold rounded-lg hover:bg-white hover:text-black hover:bg-opacity-70">
+              <TypeAnimation
+      sequence={[
+        
+        'Sign Up',
+        1000, 
+        'Sign In',
+        1000,
+      ]}
+      wrapper="span"
+      speed={10}
+      style={{  display: 'inline-block' }}
+      repeat={Infinity}
+    />
+              </button>
             
           </li>
         </ul>
