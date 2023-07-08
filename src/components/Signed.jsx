@@ -4,8 +4,8 @@ import { MdEmail } from "react-icons/md";
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 
 const Signed = () => {
-    
-  
+
+
   const [sign, setSign] = useState(true);
 
   const handleIn = () => {
@@ -13,10 +13,10 @@ const Signed = () => {
   };
 
   const s = useContext(SignContext);
-  
+
   const handleClose = s.handleClose;
 
-  
+
   return (
     <div
       onClick={handleClose}
@@ -25,8 +25,8 @@ const Signed = () => {
     >
       <div
         className={`bg-black bg-opacity-80 2xl:bg-inherit flex flex-col text-white border-4 border-blue-400 rounded-xl p-2  2xl:w-[400px] min-[360px]:w-[330px] min-[400px]:w-[360px] min-[500px]:w-[400px] min-[800px]:w-[500px] min-[900px]:w-[600px] lg:w-[400px] min-[1080px]:w-[700px] xl:w-[500px]
-        ${sign ? "2xl:h-[600px] min-[360px]:h-[540px]  min-[500px]:h-[500px] min-[600px]:h-[610px] min-[700px]:h-[650px] min-[800px]:h-[680px]  min-[900px]:h-[730px] lg:h-[450px] min-[1080px]:h-[800px] xl:h-[550px]" : 
-        "2xl:h-[700px] min-[360px]:h-[560px] min-[390px]:h-[580px] min-[400px]:h-[600px] min-[500px]:h-[580px] min-[600px]:h-[640px] min-[700px]:h-[720px] min-[800px]:h-[770px] min-[900px]:h-[820px] lg:h-[450px] min-[1080px]:h-[900px] xl:h-[620px]"}`}
+        ${sign ? "2xl:h-[600px] min-[360px]:h-[540px]  min-[500px]:h-[500px] min-[600px]:h-[610px] min-[700px]:h-[650px] min-[800px]:h-[680px]  min-[900px]:h-[730px] lg:h-[450px] min-[1080px]:h-[800px] xl:h-[550px]" :
+            "2xl:h-[700px] min-[360px]:h-[560px] min-[390px]:h-[580px] min-[400px]:h-[600px] min-[500px]:h-[580px] min-[600px]:h-[640px] min-[700px]:h-[720px] min-[800px]:h-[770px] min-[900px]:h-[820px] lg:h-[450px] min-[1080px]:h-[900px] xl:h-[620px]"}`}
       >
         <div className="relative left-[95%] top-[1%]">
           <h1 id="close" className="font-bold text-xl cursor-pointer">

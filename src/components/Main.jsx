@@ -41,9 +41,10 @@ const Main = () => {
           <div className=" w-full  flex flex-row justify-center mt-16 items-center content-center text-center z-10 absolute top-[15vh] min-[1080px]:top-[15vh] lg:top-[22vh] xl:top-[20vh] 2xl:top-[15vh] m-auto">
             <input
               type="text"
-              className="text-white text-xl md:text-2xl h-10 min-[280px]:w-[70%] md:pl-4 md:h-14 md:w-[50%] min-[1080px]:w-[60%] xl:w-[50%] bg-transparent border-4 border-blue-400 rounded-lg"
+              placeholder="Enter Stock Symbol"
+              className="text-white text-xl md:text-2xl h-10 w-[70%] md:pl-4 md:h-14 md:w-[50%] bg-transparent border-4 border-blue-400 rounded-lg" value={stockSymbol} onChange={(e) => setStockSymbol(e.target.value)}
             />
-            <button className="ml-4 p-2 md:p-4 border-2 rounded-lg hover:bg-white hover:bg-opacity-40 hover:text-black ">
+            <button className="ml-4 p-2 md:p-4 border-2 rounded-lg hover:bg-white hover:bg-opacity-40 hover:text-black" type="submit" onClick={() => { fetchData(stockSymbol) }}>
               <FaSearch  className="text-white min-[360px]:h-[25px] min-[360px]:w-[25px]" />
             </button>
           </div>
