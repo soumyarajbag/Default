@@ -41,7 +41,7 @@ const Chart = () => {
     labels: stockInfo.days,
     datasets: [
       {
-        label: "Stock Price v/s Days",
+        label: "Stock Price",
         data: stockInfo.predicted_prices,
         // backgroundColor: (context) => {
         //   // const bgColor = [
